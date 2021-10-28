@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>뷰 기초 익히기</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <p>
+    <div id="app">
+    {{nextYear('안녕하세요')}}    
+    <input :type="type" :value="inputData">
+    <a :href="getKossieCoderLink('kossieCoder')">코지코더채널</a>
+    </div>
+    </p>
+    
+</body>
+<script>
+    new Vue({
+       el : '#app',
+       data : {
+           person : {
+            name : '동넝이',
+            age : 28    
+           },
+           inputData : 'wow',
+           type : 'number',
+           link : "https://www.youtube.com/kossiecoder"
+       },
+       methods : {
+           nextYear(greeting){
+               return this.person.name + '은(는) 내년에 ' + (this.person.age+1) + '살 입니다.';
+           },
+           otherMethod : function(){
+               this.nextYear();
+           },
+           printThis : function(){
+               console.log(this);
+           },
+           getKossieCoderLink(channel){
+                return this.link + channel;
+           }
+       }
+    });
+</script>
+</html>
